@@ -1,0 +1,47 @@
+#+TITLE: My config files
+#+AUTHOR: Tomás Solar
+#+OPTIONS: toc:nil
+
+* Stuff I use
+** [[https://www.gnu.org/software/stow/manual/stow.html][GNU Stow]]
+On Debian GNU/Linux:
+#+BEGIN_SRC bash
+sudo apt install stow
+#+END_SRC
+** [[https://github.com/rbenv/rbenv][rbenv]] (with [[https://github.com/jf/rbenv-gemset][rbenv gemsets]])
+
+TL;DR
+#+BEGIN_SRC bash
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+git clone git://github.com/jf/rbenv-gemset.git $HOME/.rbenv/plugins/rbenv-gemset
+#+END_SRC
+
+** [[https://github.com/Bash-it/bash-it][Bash IT!]]
+
+#+BEGIN_SRC bash
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh
+#+END_SRC
+** exa
+#+BEGIN_SRC bash
+sudo apt install exa
+#+END_SRC
+
+** [[https://github.com/nvm-sh/nvm][NVM]]
+
+Change `0.36.0` to any other more recent version:
+#+BEGIN_SRC bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+#+END_SRC
+
+* Usage
+Clone this repo
+#+BEGIN_SRC bash
+git clone git@gitlab.com:tsolar/dotfiles.git $HOME
+#+END_SRC
+
+Then restore configs like:
+#+BEGIN_SRC bash
+cd dotfiles
+stow bash xresources # etc...
+#+END_SRC
