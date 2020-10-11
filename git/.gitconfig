@@ -1,0 +1,13 @@
+[user]
+	name = Tomás Solar Castro
+	email = tsolar@gmail.com
+[push]
+	default = simple
+[alias]
+	co = checkout
+[github]
+	user = tsolar
+[magit]
+	hideCampaign = true
+[core]
+	excludesfile = /home/tom/.gitignore_global
