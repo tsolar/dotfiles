@@ -254,3 +254,12 @@
   ;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))
   ;; ))
 (setq +latex-viewers '(pdf-tools))
+
+(use-package! ranger
+  :init
+  (setq ranger-cleanup-on-disable t)
+  (setq ranger-cleanup-eagerly t)
+  (setq ranger-show-hidden t)
+  (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
+  (setq ranger-dont-show-binary t)
+  )
