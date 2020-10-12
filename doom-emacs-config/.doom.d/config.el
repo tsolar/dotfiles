@@ -68,7 +68,8 @@
   :hook (ruby-mode . ruby-tools-mode)
   :diminish ruby-tools-mode)
 
-(global-visual-line-mode t)
+;; Wrap lines, please! (I still want to do it the old-fashioned way...)
+(+global-word-wrap-mode +1)
 
 (use-package ruby-mode
   :mode   (("Capfile" . ruby-mode)
