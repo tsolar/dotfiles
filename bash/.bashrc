@@ -117,6 +117,9 @@ export JAVA_HOME=$(dirname $(dirname $(readlink -e $(which javac))))
 # pip installs binaries here
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# I am using Doom Emacs :)
+PATH="$HOME/.emacs.d/bin:$PATH"
+
 # powerline shell
 # function _update_ps1() {
 #     PS1=$(powerline-shell $?)
