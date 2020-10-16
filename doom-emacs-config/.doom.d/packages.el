@@ -54,5 +54,5 @@
 (package! dotenv-mode)
 (package! ssh-config-mode)
 (package! nginx-mode)
-;; (package! org-superstar)
 (package! org-preview-html)
+(package! apt-sources-list)

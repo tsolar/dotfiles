@@ -71,7 +71,7 @@
 ;; Wrap lines, please! (I still want to do it the old-fashioned way...)
 (+global-word-wrap-mode +1)
 
-(use-package ruby-mode
+(use-package! ruby-mode
   :mode   (("Capfile" . ruby-mode)
            ("Gemfile\\'" . ruby-mode)
            ("Rakefile" . ruby-mode)
