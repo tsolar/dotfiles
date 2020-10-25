@@ -34,14 +34,27 @@ Change `0.36.0` to any other more recent version:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 #+END_SRC
 
+** Awesome WM
+
+I use the awesome window manager :)
+#+BEGIN_SRC bash
+sudo apt install awesome
+#+END_SRC
+
 * Usage
 Clone this repo
 #+BEGIN_SRC bash
 git clone git@gitlab.com:tsolar/dotfiles.git $HOME
 #+END_SRC
 
-Then restore configs like:
+Bring the awesome config from its own repo
 #+BEGIN_SRC bash
 cd dotfiles
-stow bash xresources # etc...
+git submodule update --init --recursive
+#+END_SRC
+
+Then restore configs like:
+#+BEGIN_SRC bash
+cd $HOME/dotfiles
+stow awesome bash xresources # etc...
 #+END_SRC
