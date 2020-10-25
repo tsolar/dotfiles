@@ -1,0 +1,3 @@
+[submodule "awesomewm/.config/awesome"]
+	path = awesomewm/.config/awesome
+	url = git@gitlab.com:tsolar/awesome.git
