@@ -56,6 +56,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(fset 'evil-visual-update-x-selection 'ignore)
+
+(setq-default major-mode 'text-mode)
+
 (use-package! rbenv
   :init (setq rbenv-show-active-ruby-in-modeline nil)
   :config (progn
@@ -87,6 +91,9 @@
          )
   :config
   (setq ruby-deep-indent-paren nil))
+
+(use-package! projectile-rails
+  :hook (projectile-mode . projectile-rails-global-mode))
 
 (use-package! dotenv-mode
   :mode (("\\.env\\..*\\'" . dotenv-mode)))
@@ -264,3 +271,9 @@
   (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
   (setq ranger-dont-show-binary t)
   )
+
+(map! :leader
+      (:prefix-map ("b" . "buffer")
+       :desc "Kill current buffer"   "d"   #'kill-current-buffer
+       :desc "Kill current buffer"   "k"   #'kill-current-buffer
+       ))
