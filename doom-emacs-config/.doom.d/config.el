@@ -92,6 +92,7 @@
   :config
   (setq ruby-deep-indent-paren nil))
 
+;; So I can use keybindings on slim views :)
 (use-package! projectile-rails
   :hook (projectile-mode . projectile-rails-global-mode))
 
