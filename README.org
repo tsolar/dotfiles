@@ -8,6 +8,7 @@ On Debian GNU/Linux:
 #+BEGIN_SRC bash
 sudo apt install stow
 #+END_SRC
+
 ** [[https://github.com/rbenv/rbenv][rbenv]] (with [[https://github.com/jf/rbenv-gemset][rbenv gemsets]])
 
 TL;DR
@@ -22,6 +23,12 @@ git clone git://github.com/jf/rbenv-gemset.git $HOME/.rbenv/plugins/rbenv-gemset
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 ~/.bash_it/install.sh
 #+END_SRC
+
+I use my own aliases on my .bashrc file. Please do not overwrite them
+#+BEGIN_SRC bash
+bash-it disable alias general
+#+END_SRC
+
 ** exa
 #+BEGIN_SRC bash
 sudo apt install exa
@@ -41,10 +48,15 @@ I use the awesome window manager :)
 sudo apt install awesome
 #+END_SRC
 
+Also, with awesome I use some other software
+#+BEGIN_SRC bash
+sudo apt install picom redshift-gtk pasystray pavucontrol udiskie maim xdotool
+#+END_SRC
+
 * Usage
 Clone this repo
 #+BEGIN_SRC bash
-git clone git@gitlab.com:tsolar/dotfiles.git $HOME
+git clone git@gitlab.com:tsolar/dotfiles.git $HOME/dotfiles
 #+END_SRC
 
 Bring the awesome config from its own repo
