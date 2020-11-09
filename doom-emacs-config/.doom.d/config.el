@@ -273,6 +273,10 @@
   (setq ranger-dont-show-binary t)
   )
 
+(use-package! yaml-mode
+  :mode (("\\.ya?ml\\'" . yaml-mode)
+         )
+  )
 (map! :leader
       (:prefix-map ("b" . "buffer")
        :desc "Kill current buffer"   "d"   #'kill-current-buffer
