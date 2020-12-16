@@ -98,6 +98,31 @@
 (use-package! projectile-rails
   :hook (projectile-mode . projectile-rails-global-mode))
 
+(use-package! projectile
+  :init
+  (setq
+   projectile-enable-caching nil
+   projectile-completion-system 'ivy
+   projectile-find-dir-includes-top-level t
+   ;; projectile-switch-project-action 'counsel-projectile
+   projectile-switch-project-action 'magit-status
+
+   projectile-sort-order 'recently-active
+
+   projectile-globally-ignored-files '("TAGS" "\#*\#" "*~" "*.la"
+                                       "*.o" "*.pyc" "*.elc" "*.exe"))
+  :hook (
+         (text-mode . projectile-mode)
+         (prog-mode . projectile-mode)
+         (magit-mode . projectile-mode)
+         (css-mode . projectile-mode)
+         (yaml-mode . projectile-mode)
+         (gitignore-mode . projectile-mode)
+         )
+  :config
+  (add-to-list 'projectile-globally-ignored-directories "node_modules")
+  )
+
 (use-package! dotenv-mode
   :mode (("\\.env\\..*\\'" . dotenv-mode)))
 
