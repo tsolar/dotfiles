@@ -23,7 +23,7 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 (setq doom-font (font-spec :family "Inconsolata" :size 18)
-      doom-variable-pitch-font (font-spec :family "Nimbus Sans" :size 18)
+      doom-variable-pitch-font (font-spec :family "Nimbus Sans" :size 14)
       doom-big-font (font-spec :family "Inconsolata" :size 30)
       )
 
