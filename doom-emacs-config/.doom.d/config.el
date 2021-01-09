@@ -71,28 +71,31 @@
   )
 
 (use-package! ruby-tools
-  :hook (ruby-mode . ruby-tools-mode)
+  :hook ((ruby-mode . ruby-tools-mode)
+         (slim-mode . ruby-tools-mode))
   :diminish ruby-tools-mode)
 
 ;; Wrap lines, please! (I still want to do it the old-fashioned way...)
 (+global-word-wrap-mode +1)
 
 (use-package! ruby-mode
-  :mode   (("Capfile" . ruby-mode)
-           ("Gemfile\\'" . ruby-mode)
-           ("Rakefile" . ruby-mode)
-           ("\\.rb" . ruby-mode)
-           ("\\.ru" . ruby-mode)
-           ("\\.rake" . ruby-mode)
-           ("\\.jbuilder" . ruby-mode)
-           ("\\.xlsx\\.axlsx\\'" . ruby-mode))
-  :init
-  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+  ;; :mode   (("Capfile" . ruby-mode)
+  ;;          ("Gemfile\\'" . ruby-mode)
+  ;;          ("Rakefile" . ruby-mode)
+  ;;          ("\\.rb" . ruby-mode)
+  ;;          ("\\.ru" . ruby-mode)
+  ;;          ("\\.rake" . ruby-mode)
+  ;;          ("\\.jbuilder" . ruby-mode)
+  ;;          ("\\.xlsx\\.axlsx\\'" . ruby-mode))
+  ;; :init
+  ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+  :mode "\\.\\(?:a?rb\\|axlsx\\)\\'"
   :hook (
          (ruby-mode . subword-mode)
          )
-  :config
-  (setq ruby-deep-indent-paren nil))
+  ;; :config
+  ;; (setq ruby-deep-indent-paren nil)
+  )
 
 ;; So I can use keybindings on slim views :)
 (use-package! projectile-rails
