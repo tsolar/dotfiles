@@ -56,3 +56,4 @@
 (package! nginx-mode)
 (package! org-preview-html)
 (package! apt-sources-list)
+(package! ranger)
