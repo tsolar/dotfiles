@@ -109,6 +109,7 @@
    projectile-find-dir-includes-top-level t
    ;; projectile-switch-project-action 'counsel-projectile
    projectile-switch-project-action 'magit-status
+   counsel-projectile-switch-project-action 'magit-status
 
    projectile-sort-order 'recently-active
 
