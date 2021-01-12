@@ -62,6 +62,10 @@
 
 (setq-default major-mode 'text-mode)
 
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 (use-package! rbenv
   :init (setq rbenv-show-active-ruby-in-modeline nil)
   :config (progn
