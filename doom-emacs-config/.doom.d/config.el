@@ -235,8 +235,8 @@
 
     ;;(define-key web-mode-map (kbd "C-n") 'web-mode-tag-match)
     (setq web-mode-disable-auto-pairing nil)
-    (setq web-mode-enable-block-face t)
-    (setq web-mode-enable-part-face t)
+    (setq web-mode-enable-block-face nil)
+    (setq web-mode-enable-part-face nil)
     (setq web-mode-enable-comment-keywords t)
     (setq web-mode-enable-heredoc-fontification t)
     (setq web-mode-disable-css-colorization nil)
@@ -245,7 +245,6 @@
     (setq web-mode-style-padding 2)
     (setq web-mode-script-padding 2)
     ;; (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-
 
     ;; )
   :config
