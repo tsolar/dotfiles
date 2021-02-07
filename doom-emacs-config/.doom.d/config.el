@@ -160,6 +160,7 @@
 ;;   (setq whitespace-style '(face tabs empty trailing lines-tail)))
 
 (use-package! pug-mode
+  :commands pug-mode
   :init
   (setq pug-tab-width 2)
   (add-hook 'pug-mode-hook (lambda () (electric-indent-local-mode -1)))
@@ -176,10 +177,8 @@
          ("/authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 (use-package! nginx-mode
-  :config
-  (progn
-    (add-to-list 'auto-mode-alist '("/etc/nginx/nginx.conf\\'" . nginx-mode))
-    (add-to-list 'auto-mode-alist '("/etc/nginx/sites-\\(enabled\\|available\\)/.*\\'" . nginx-mode))))
+  :mode (("/etc/nginx/nginx.conf\\'" . nginx-mode)
+         ("/etc/nginx/sites-\\(enabled\\|available\\)/.*\\'" . nginx-mode)))
 
 ;; (use-package! emmet-mode
 ;;   :commands (emmet-mode)
@@ -282,7 +281,7 @@
   )
 
 (use-package! js2-mode
-  ;; :mode "\\.js$"
+  :mode "\\.m?js\\'"
   :init
   (setq js-basic-indent 2)
   (setq-default js2-basic-indent 2
@@ -299,6 +298,7 @@
 (setq +latex-viewers '(pdf-tools))
 
 (use-package! ranger
+  :commands ranger
   :init
   (setq ranger-cleanup-on-disable t)
   (setq ranger-cleanup-eagerly t)
@@ -308,9 +308,8 @@
   )
 
 (use-package! yaml-mode
-  :mode (("\\.ya?ml\\'" . yaml-mode)
-         )
-  )
+  :mode (("\\.ya?ml\\'" . yaml-mode)))
+
 (map! :leader
       (:prefix-map ("b" . "buffer")
        :desc "Kill current buffer"   "d"   #'kill-current-buffer
