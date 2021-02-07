@@ -316,6 +316,23 @@
        :desc "Kill current buffer"   "k"   #'kill-current-buffer
        ))
 
+;; (map! :map company-active-map
+;;       ;; :after company
+;;       "<tab>" #'company-complete-selection)
+;; (map! :map lsp-mode-map
+;;       "<tab>" #'company-indent-or-complete-common)
+;; (use-package! company
+;;   :bind (:map company-active-map
+;;          ("<tab>" . company-complete-selection))
+;;         (:map lsp-mode-map
+;;          ("<tab>" . company-indent-or-complete-common))
+;;   :custom
+;;   (company-minimum-prefix-length 1)
+;;   (company-idle-delay 0.0))
+(with-eval-after-load 'company
+  (define-key company-active-map [tab] 'company-complete-selection)
+  (define-key company-active-map (kbd "TAB") 'company-complete-selection))
+
 ;; (setq
 ;;       ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
 ;;       ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
