@@ -22,9 +22,9 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "Inconsolata" :size 18)
-      doom-variable-pitch-font (font-spec :family "Nimbus Sans" :size 14)
-      doom-big-font (font-spec :family "Inconsolata" :size 30)
+(setq doom-font (font-spec :family "FiraCode" :size 16)
+      doom-variable-pitch-font (font-spec :family "Cantarell" :size 16)
+      doom-big-font (font-spec :family "FiraCode" :size 30)
       )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
