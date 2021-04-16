@@ -300,6 +300,11 @@
   ;; (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))
   ;; ))
 (setq +latex-viewers '(pdf-tools))
+;; (use-package! pdf-view
+;;   :hook (pdf-tools-enabled . pdf-view-midnight-minor-mode)
+;;   :hook (pdf-tools-enabled . hide-mode-line-mode)
+;;   :config
+;;   (setq pdf-view-midnight-colors '("#ABB2BF" . "#282C35")))
 
 (use-package! ranger
   :commands ranger
@@ -333,9 +338,9 @@
 ;;   :custom
 ;;   (company-minimum-prefix-length 1)
 ;;   (company-idle-delay 0.0))
-(with-eval-after-load 'company
-  (define-key company-active-map [tab] 'company-complete-selection)
-  (define-key company-active-map (kbd "TAB") 'company-complete-selection))
+;; (with-eval-after-load 'company
+;;   (define-key company-active-map [tab] 'company-complete-selection)
+;;   (define-key company-active-map (kbd "TAB") 'company-complete-selection))
 
 ;; (setq
 ;;       ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
