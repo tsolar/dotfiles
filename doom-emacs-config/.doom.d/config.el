@@ -359,3 +359,13 @@
 ;;       mu4e-refile-folder "/[Gmail]/All Mail"
 ;;       mu4e-trash-folder "/[Gmail]/Trash"
 ;;       )
+;; (use-package! nyan-mode
+;;   :defer t
+;;   :init
+;;   (setq nyan-animate-nyancat t)
+;;   (nyan-mode t))
+;;
+(setq +doom-dashboard-banner-dir (concat doom-private-dir "/banners/"))
+
+(setq evil-vsplit-window-right t)
+(setq evil-split-window-below t)
