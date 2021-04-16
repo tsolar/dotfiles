@@ -1,27 +1,92 @@
+#+TITLE: My Doom Emacs config
+#+AUTHOR: Tomás Solar
+
+Here's my personal config in order to use it with Doom Emacs.
+
+* Lexical binding
+It seems to be necessary :)
+
+#+begin_src elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+#+end_src
+* Personal identification
+
+Some functionality uses this to identify me, e.g. GPG configuration, email clients, file templates and snippets.
+
+#+begin_src elisp
 
 (setq user-full-name "Tomás Solar"
       user-mail-address "tsolar@gmail.com")
 
+#+end_src
+
+* GUI
+** Theme
+
+#+begin_src elisp
+
 (setq doom-theme 'doom-tomorrow-night)
+
+#+end_src
+
+** Fonts
+
+#+begin_src elisp
 
 (setq doom-font (font-spec :family "FiraCode" :size 16)
       doom-variable-pitch-font (font-spec :family "Cantarell" :size 16)
       doom-big-font (font-spec :family "FiraCode" :size 30)
       )
 
+#+end_src
+
+** Dashboard banner
+
+I like Doom's default ASCII banner, but I prefer something a little more generic.
+So I use an image with the Emacs logo instead, it's located at =DOOMDIR/banners/default.png=
+
+#+begin_src elisp
+
 (setq +doom-dashboard-banner-dir (concat doom-private-dir "banners/"))
+
+#+end_src
+** Display line numbers
+
+#+begin_src elisp
 
 (setq display-line-numbers-type t)
 
+#+end_src
+
+* General Editor stuff
+** Default major mode
+#+begin_src elisp
+
 (setq-default major-mode 'text-mode)
 
+#+end_src
+** Paste with mouse middle button
+#+begin_src elisp :tangle no
+
+(fset 'evil-visual-update-x-selection 'ignore)
+
+#+end_src
+** Wrap text
+Wrap lines, please! (I still want to do it the old-fashioned way...)
+#+begin_src elisp
 (+global-word-wrap-mode +1)
+#+end_src
+** Highlight indent guides
+#+begin_src elisp
 
 (after! highlight-indent-guides
   (setq
    highlight-indent-guides-method     'fill
    highlight-indent-guides-responsive 'top))
+
+#+end_src
+** Rainbow mode
+#+begin_src elisp
 
 (use-package! rainbow-mode
   :hook (
@@ -31,14 +96,36 @@
          )
   )
 
+#+end_src
+** Buffers managing
+*** Splitting windows
+
+I like to split windows and have focus on the right and the bottom.
+
+#+begin_src elisp
+
 (setq evil-vsplit-window-right t)
 (setq evil-split-window-below t)
+
+#+end_src
+
+*** Killing windows
+
+I like the Doom's default keybindings for killing buffers, but they seem to not be available when Evil Mode is not active, so define them again.
+
+#+begin_src elisp
 
 (map! :leader
       (:prefix-map ("b" . "buffer")
        :desc "Kill current buffer"   "d"   #'kill-current-buffer
        :desc "Kill current buffer"   "k"   #'kill-current-buffer
        ))
+
+#+end_src
+** Projects
+*** Projectile
+
+#+begin_src elisp
 
 (use-package! projectile
   :init
@@ -65,11 +152,26 @@
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
   )
 
+#+end_src
+** Multiple cursors
+#+begin_src elisp
+
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+#+end_src
+* Programming
+** Org
+*** Default org directory
+#+begin_src elisp
+
 (setq org-directory "~/org/")
+
+#+end_src
+** Ruby
+*** Ruby mode
+#+begin_src elisp
 
 (use-package! ruby-mode
   :mode "\\.\\(?:a?rb\\|axlsx\\)\\'"
@@ -80,17 +182,41 @@
   ;; (setq ruby-deep-indent-paren nil)
   )
 
+#+end_src
+*** Ruby tools
+
+Ruby tools sets some useful keybindings that I use to switch symbols to strings, and double-quoted strings to single-quoted and vice-versa.
+They also work on Slim mode, so I added it to the hook.
+
+#+begin_src elisp
+
 (use-package! ruby-tools
   :hook ((ruby-mode . ruby-tools-mode)
          (slim-mode . ruby-tools-mode))
   :diminish ruby-tools-mode)
 
+#+end_src
+
+*** Projectile and Rails
+
+=projectile-rails= is an awesome package, and I like to use the keybindings also on Slim views, and this hook makes it possible :)
+
+#+begin_src elisp
+
 (use-package! projectile-rails
   :hook (projectile-mode . projectile-rails-global-mode))
+
+#+end_src
+
+** Yaml
+#+begin_src elisp
 
 (use-package! yaml-mode
   :mode (("\\.ya?ml\\'" . yaml-mode)))
 
+#+end_src
+** Javascript
+#+begin_src elisp
 (setq js-indent-level 2)
 (setq typescript-indent-level 2)
 
@@ -104,6 +230,10 @@
                 js2-cleanup-whitespace t
                 js2-enter-indents-newline t
                 js2-indent-on-enter-key t))
+
+#+end_src
+** Web-Mode
+#+begin_src elisp
 
 (use-package! web-mode
   :mode (("\\.html\\'" . web-mode)
@@ -182,6 +312,10 @@
     )
   )
 
+#+end_src
+** Pug
+#+begin_src elisp
+
 (use-package! pug-mode
   :commands pug-mode
   :init
@@ -190,11 +324,26 @@
   (add-hook 'mmm-pug-mode-submode-hook (lambda () (electric-indent-local-mode -1)))
   )
 
+#+end_src
+** Latex
+Set Latex viewers
+
+#+begin_src elisp
+
 (setq +latex-viewers '(pdf-tools))
+
+#+end_src
+* Configuration Languages
+** Nginx
+#+begin_src elisp
 
 (use-package! nginx-mode
   :mode (("/etc/nginx/nginx.conf\\'" . nginx-mode)
          ("/etc/nginx/sites-\\(enabled\\|available\\)/.*\\'" . nginx-mode)))
+
+#+end_src
+** SSH config
+#+begin_src elisp
 
 (use-package! ssh-config-mode
   :init
@@ -205,8 +354,17 @@
          ("/known_hosts\\'"       . ssh-known-hosts-mode)
          ("/authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
+#+end_src
+** DotEnv
+#+begin_src elisp
+
 (use-package! dotenv-mode
   :mode (("\\.env\\..*\\'" . dotenv-mode)))
+
+#+end_src
+* Tools
+** Ranger
+#+begin_src elisp
 
 (use-package! ranger
   :commands ranger
@@ -217,3 +375,5 @@
   (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
   (setq ranger-dont-show-binary t)
   )
+
+#+end_src
