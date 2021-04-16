@@ -66,13 +66,13 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-(use-package! rbenv
-  :init (setq rbenv-show-active-ruby-in-modeline nil)
-  :config (progn
-            (global-rbenv-mode)
-            (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
-            )
-  )
+;; (use-package! rbenv
+;;   :init (setq rbenv-show-active-ruby-in-modeline nil)
+;;   :config (progn
+;;             (global-rbenv-mode)
+;;             (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
+;;             )
+;;   )
 
 (use-package! ruby-tools
   :hook ((ruby-mode . ruby-tools-mode)
@@ -109,11 +109,11 @@
   :init
   (setq
    projectile-enable-caching nil
-   projectile-completion-system 'ivy
+   ;; projectile-completion-system 'ivy
    projectile-find-dir-includes-top-level t
    ;; projectile-switch-project-action 'counsel-projectile
-   projectile-switch-project-action 'magit-status
-   counsel-projectile-switch-project-action 'magit-status
+   ;; projectile-switch-project-action 'magit-status
+   ;; counsel-projectile-switch-project-action 'magit-status
 
    projectile-sort-order 'recently-active
 
@@ -134,13 +134,17 @@
 (use-package! dotenv-mode
   :mode (("\\.env\\..*\\'" . dotenv-mode)))
 
-(when (display-graphic-p)
-  (use-package! highlight-indent-guides
-    :diminish
-    :hook (prog-mode . highlight-indent-guides-mode)
-    :init
-    (setq highlight-indent-guides-method 'fill)
-    (setq highlight-indent-guides-responsive 'top)))
+;; (when (display-graphic-p)
+;;   (use-package! highlight-indent-guides
+;;     :diminish
+;;     :hook (prog-mode . highlight-indent-guides-mode)
+;;     :init
+;;     (setq highlight-indent-guides-method 'fill)
+;;     (setq highlight-indent-guides-responsive 'top)))
+(after! highlight-indent-guides
+  (setq
+   highlight-indent-guides-method     'fill
+   highlight-indent-guides-responsive 'top))
 
 (use-package! rainbow-mode
   :hook (
