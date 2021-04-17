@@ -16,6 +16,8 @@
 
 (setq-default major-mode 'text-mode)
 
+(setq evil-want-fine-undo t)
+
 (+global-word-wrap-mode +1)
 
 (after! highlight-indent-guides

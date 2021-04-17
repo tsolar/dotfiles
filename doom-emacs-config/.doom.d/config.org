@@ -71,6 +71,13 @@ So I use an image with the Emacs logo instead, it's located at =DOOMDIR/banners/
 (fset 'evil-visual-update-x-selection 'ignore)
 
 #+end_src
+** Undo
+I want to undo/redo step by step, not a lot at once
+#+begin_src elisp
+
+(setq evil-want-fine-undo t)
+
+#+end_src
 ** Wrap text
 Wrap lines, please! (I still want to do it the old-fashioned way...)
 #+begin_src elisp
