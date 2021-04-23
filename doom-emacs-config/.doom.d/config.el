@@ -14,6 +14,8 @@
 
 (setq display-line-numbers-type t)
 
+(when IS-MAC (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
+
 (setq-default major-mode 'text-mode)
 
 (setq evil-want-fine-undo t)
@@ -192,7 +194,7 @@
   (add-hook 'mmm-pug-mode-submode-hook (lambda () (electric-indent-local-mode -1)))
   )
 
-(setq +latex-viewers '(pdf-tools))
+(when IS-LINUX (setq +latex-viewers '(pdf-tools)))
 
 (use-package! nginx-mode
   :mode (("/etc/nginx/nginx.conf\\'" . nginx-mode)

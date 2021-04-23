@@ -9,6 +9,7 @@ It seems to be necessary :)
 #+begin_src elisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 #+end_src
+
 * Personal identification
 
 Some functionality uses this to identify me, e.g. GPG configuration, email clients, file templates and snippets.
@@ -50,11 +51,20 @@ So I use an image with the Emacs logo instead, it's located at =DOOMDIR/banners/
 (setq +doom-dashboard-banner-dir (concat doom-private-dir "banners/"))
 
 #+end_src
+
 ** Display line numbers
 
 #+begin_src elisp
 
 (setq display-line-numbers-type t)
+
+#+end_src
+
+** Start maximized
+
+#+begin_src elisp
+
+(when IS-MAC (add-to-list 'initial-frame-alist '(fullscreen . maximized)))
 
 #+end_src
 
@@ -68,7 +78,7 @@ So I use an image with the Emacs logo instead, it's located at =DOOMDIR/banners/
 ** Paste with mouse middle button
 #+begin_src elisp :tangle no
 
-(fset 'evil-visual-update-x-selection 'ignore)
+(when IS-LINUX (fset 'evil-visual-update-x-selection 'ignore))
 
 #+end_src
 ** Undo
@@ -337,7 +347,7 @@ Set Latex viewers
 
 #+begin_src elisp
 
-(setq +latex-viewers '(pdf-tools))
+(when IS-LINUX (setq +latex-viewers '(pdf-tools)))
 
 #+end_src
 * Configuration Languages
