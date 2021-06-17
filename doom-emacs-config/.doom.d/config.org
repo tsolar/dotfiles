@@ -376,7 +376,7 @@ Set Latex viewers
 #+begin_src elisp
 
 (use-package! dotenv-mode
-  :mode (("\\.env\\..*\\'" . dotenv-mode)))
+  :mode (("\\.env\\.?.*\\'" . dotenv-mode)))
 
 #+end_src
 * Tools

@@ -210,7 +210,7 @@
          ("/authorized_keys2?\\'" . ssh-authorized-keys-mode)))
 
 (use-package! dotenv-mode
-  :mode (("\\.env\\..*\\'" . dotenv-mode)))
+  :mode (("\\.env\\.?.*\\'" . dotenv-mode)))
 
 (use-package! ranger
   :commands ranger
