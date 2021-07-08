@@ -221,3 +221,21 @@
   (setq ranger-excluded-extensions '("mkv" "iso" "mp4"))
   (setq ranger-dont-show-binary t)
   )
+
+(use-package! org-present
+  :commands org-present
+  :bind (:map org-present-mode-keymap
+         ("C-c C-j" . org-present-next)
+         ("C-c C-k" . org-present-prev))
+  :hook (
+         (org-present-mode . (lambda ()
+                               (org-present-big)
+                               (org-display-inline-images)
+                               (org-present-hide-cursor)
+                               (org-present-read-only)))
+         (org-present-mode-quit . (lambda ()
+                                    (org-present-small)
+                                    (org-remove-inline-images)
+                                    (org-present-show-cursor)
+                                    (org-present-read-write)))
+         ))

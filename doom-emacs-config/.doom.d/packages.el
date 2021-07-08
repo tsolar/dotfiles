@@ -57,3 +57,4 @@
 (package! org-preview-html)
 (package! apt-sources-list)
 (package! ranger)
+(package! org-present)
