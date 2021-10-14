@@ -112,13 +112,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export JAVA_HOME=$(dirname $(dirname $(readlink -e $(which javac))))
+if [ -x javac ]; then
+  export JAVA_HOME=$(dirname $(dirname $(readlink -e $(command -v javac))))
+fi
 
 # pip installs binaries here
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # I am using Doom Emacs :)
-PATH="$HOME/.emacs.d/bin:$PATH"
+PATH="$HOME/.config/emacs/bin:$PATH"
 
 # powerline shell
 # function _update_ps1() {
