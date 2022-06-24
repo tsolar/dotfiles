@@ -6,7 +6,7 @@
 (setq doom-theme 'doom-tomorrow-night)
 
 (setq doom-font (font-spec :family "FiraCode" :size 16)
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 16)
+      doom-variable-pitch-font (font-spec :family "FiraSans" :size 16)
       doom-big-font (font-spec :family "FiraCode" :size 30)
       )
 
