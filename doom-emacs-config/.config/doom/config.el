@@ -196,6 +196,19 @@
 
 (when IS-LINUX (setq +latex-viewers '(pdf-tools)))
 
+(use-package blamer
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  :custom-face
+  (blamer-face ((t :foreground "#7a88cf"
+                    :background nil
+                    ;; :height 140
+                    :italic t)))
+  :config
+  (global-blamer-mode 1))
+
 (use-package! nginx-mode
   :mode (("/etc/nginx/nginx.conf\\'" . nginx-mode)
          ("/etc/nginx/sites-\\(enabled\\|available\\)/.*\\'" . nginx-mode)))
@@ -239,3 +252,16 @@
                                     (org-present-show-cursor)
                                     (org-present-read-write)))
          ))
+
+(use-package! dashboard
+  :init      ;; tweak dashboard config before loading it
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startup-banner (concat +doom-dashboard-banner-dir "default.png"))  ;; use custom image as banner
+  (setq dashboard-center-content t) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 5)
+                          (projects . 5)))
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (bookmarks . "book"))))

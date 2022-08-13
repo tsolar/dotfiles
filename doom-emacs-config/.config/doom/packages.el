@@ -58,3 +58,5 @@
 (package! apt-sources-list)
 (package! ranger)
 (package! org-present)
+(package! blamer :recipe (:host github :repo "artawower/blamer.el"))
+(package! dashboard)
