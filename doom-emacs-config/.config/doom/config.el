@@ -8,6 +8,7 @@
 (setq doom-font (font-spec :family "FiraCode" :size 16)
       doom-variable-pitch-font (font-spec :family "FiraSans" :size 16)
       doom-big-font (font-spec :family "FiraCode" :size 30)
+      doom-unicode-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
       )
 
 (setq +doom-dashboard-banner-dir (concat doom-private-dir "banners/"))
